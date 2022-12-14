@@ -11,6 +11,16 @@ a {
   text-decoration: none;
 }
 
+button {
+  cursor: pointer;
+  color: inherit;
+  border: none;
+}
+
+::placeholder {
+  color: inherit;
+}
+
 * {
   box-sizing: border-box;
 }
