@@ -15,7 +15,7 @@ export default function Home() {
     };
 
     fetchPosts();
-  }, [posts]);
+  }, []);
 
   return (
     <div className={styles.container}>

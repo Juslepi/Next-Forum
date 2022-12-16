@@ -1,4 +1,4 @@
-import React from "react";
+import { Timestamp } from "firebase/firebase-firestore";
 
 import styles from "../styles/PostBanner.module.css";
 
@@ -20,7 +20,7 @@ const PostBanner = ({ post }: PostBannerProps) => {
         </div>
       </div>
       <div className={styles.right}>
-        {/* <p className={styles.timestamp}>Posted ago</p> */}
+        <p className={styles.timestamp}>{timestamp.toDate().toString()} Posted ago</p>
       </div>
     </div>
   );
