@@ -1,0 +1,27 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  background-color: #fff;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+  margin: 0.2em
+}
+
+.avatar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 50px;
+  min-height: 50px;
+  border-radius: 50px;
+  background-color: aqua;
+}
+
+.body {
+  margin: 0.2em 1em;
+}
+
+.timestamp {
+  margin: auto;
+}
