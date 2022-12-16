@@ -20,9 +20,9 @@ const NewPostForm = ({ formOpen, setFormOpen }: NewPostFormProps) => {
   };
 
   const closeForm = (e: FormEvent) => {
-    e.preventDefault()
-    setFormOpen(false)
-  }
+    e.preventDefault();
+    setFormOpen(false);
+  };
 
   return (
     <div className={`${styles.container} ${!formOpen ? "hidden" : ""}`}>
@@ -37,8 +37,10 @@ const NewPostForm = ({ formOpen, setFormOpen }: NewPostFormProps) => {
           onChange={(e) => setContent(e.target.value)}
           placeholder="Your post here"
         />
-        <button onClick={submit}>Send post</button>
-        <button onClick={closeForm}>Close</button>
+        <div className={styles.buttonRow}>
+          <button onClick={submit}>Send post</button>
+          <button id={styles.closeButton} onClick={closeForm}>Close</button>
+        </div>
       </form>
     </div>
   );
