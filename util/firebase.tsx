@@ -7,6 +7,8 @@ import {
   serverTimestamp,
   doc,
   setDoc,
+  addDoc
+  
 } from "firebase/firestore";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -43,5 +45,5 @@ export async function createPost(poster: string, title: string, content: string)
     title,
     timestamp: serverTimestamp(),
   };
-  await setDoc(doc(db, "posts"), newPost);
+  await addDoc(collection(db, "posts"), newPost)
 }
