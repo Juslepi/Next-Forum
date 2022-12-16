@@ -34,6 +34,10 @@ ul {
   color: inherit;
 }
 
+.hidden {
+  display: none;
+}
+
 * {
   box-sizing: border-box;
 }
