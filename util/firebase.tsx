@@ -26,10 +26,11 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app);
+const postCollectionRef = collection(db, "posts");
 
 export async function getPosts() {
   const posts = Array();
-  const querySnapshot = await getDocs(collection(db, "posts"));
+  const querySnapshot = await getDocs(postCollectionRef);
   querySnapshot.forEach((post) => {
     const data = post.data();
     const id = post.id;
@@ -45,5 +46,5 @@ export async function createPost(poster: string, title: string, content: string)
     title,
     timestamp: serverTimestamp(),
   };
-  await addDoc(collection(db, "posts"), newPost)
+  await addDoc(postCollectionRef, newPost)
 }
