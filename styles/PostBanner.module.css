@@ -1,11 +1,15 @@
 .container {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.5rem;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 1rem;
   background-color: #fff;
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
   margin: 0.2em
+}
+
+.left {
+  display: flex;
 }
 
 .avatar {
@@ -15,11 +19,27 @@
   min-width: 50px;
   min-height: 50px;
   border-radius: 50px;
-  background-color: aqua;
+  background-color: var(--main-bg-color);
+  font-weight: 700;
+  font-size: 1.3rem;
+  color: #fff;
 }
 
 .body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   margin: 0.2em 1em;
+}
+
+.body h6 {
+  font-size: 1rem;
+}
+
+.body p {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  font-weight: 400;
 }
 
 .timestamp {

@@ -1,5 +1,5 @@
-[] - list current topics
-[] - create new topic
+[x] - list current topics
+[x] - create new topic
 [] - open topic
   [] - reply to topic
 
