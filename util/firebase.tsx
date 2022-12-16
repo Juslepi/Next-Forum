@@ -1,6 +1,13 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getFirestore, getDocs, collection } from "firebase/firestore";
+import {
+  getFirestore,
+  getDocs,
+  collection,
+  serverTimestamp,
+  doc,
+  setDoc,
+} from "firebase/firestore";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -28,4 +35,13 @@ export async function getPosts() {
   });
 
   return posts;
+}
+
+export async function createPost(poster: string, title: string) {
+  const newPost = {
+    poster,
+    title,
+    timestamp: serverTimestamp(),
+  };
+  await setDoc(doc(db, "posts"), newPost);
 }
