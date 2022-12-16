@@ -17,7 +17,7 @@ const PostBanner = ({ post }: PostBannerProps) => {
         <h6>{title}</h6>
         <p>{poster}</p>
       </div>
-      <p className={styles.timestamp}>Posted {timestamp}</p>
+      {/* <p className={styles.timestamp}>Posted ago</p> */}
     </div>
   );
 };
