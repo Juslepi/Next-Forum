@@ -16,16 +16,16 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
+export const db = getFirestore(app);
 
 export async function getPosts() {
-  const posts = Array()
+  const posts = Array();
   const querySnapshot = await getDocs(collection(db, "posts"));
   querySnapshot.forEach((post) => {
-    const data = post.data()
-    const id = post.id
-    posts.push({...data, id})
-  })
+    const data = post.data();
+    const id = post.id;
+    posts.push({ ...data, id });
+  });
 
-  return posts
+  return posts;
 }

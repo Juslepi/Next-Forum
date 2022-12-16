@@ -3,3 +3,18 @@
   height: 100vh;
   background-color: rgba(204, 204, 204, 0.2);
 }
+
+.toolbar {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.toolbar button {
+  font-size: 1rem;
+  padding: 0.35rem 1rem;
+  border-radius: 5px;
+  background-color: var(--main-bg-color);
+  color: #fff;
+}

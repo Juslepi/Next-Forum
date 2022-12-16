@@ -9,7 +9,7 @@
 .upper {
   padding: 1rem 0;
   color: #fff;
-  background-color: rgb(99, 156, 99);
+  background-color: var(--main-bg-color);
   display: flex;
   align-items: center;
   justify-content: space-between;
