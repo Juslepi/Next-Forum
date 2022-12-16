@@ -37,7 +37,7 @@ export async function getPosts() {
   return posts;
 }
 
-export async function createPost(poster: string, title: string) {
+export async function createPost(poster: string, title: string, content: string) {
   const newPost = {
     poster,
     title,
