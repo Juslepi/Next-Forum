@@ -1,5 +1,3 @@
-import React from "react";
-
 import styles from "../styles/PostBanner.module.css";
 
 type PostBannerProps = {
@@ -20,7 +18,7 @@ const PostBanner = ({ post }: PostBannerProps) => {
         </div>
       </div>
       <div className={styles.right}>
-        {/* <p className={styles.timestamp}>Posted ago</p> */}
+        <p className={styles.timestamp}>{timestamp.toDate().toString()} Posted ago</p>
       </div>
     </div>
   );
