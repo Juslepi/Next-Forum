@@ -1,5 +1,3 @@
-import { Timestamp } from "firebase/firebase-firestore";
-
 import styles from "../styles/PostBanner.module.css";
 
 type PostBannerProps = {
