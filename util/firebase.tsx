@@ -7,7 +7,8 @@ import {
   serverTimestamp,
   doc,
   setDoc,
-  addDoc
+  addDoc,
+  getDoc
   
 } from "firebase/firestore";
 // TODO: Add SDKs for Firebase products that you want to use
@@ -34,10 +35,22 @@ export async function getPosts() {
   querySnapshot.forEach((post) => {
     const data = post.data();
     const id = post.id;
+    data.timestamp = data.timestamp.toDate().toString()
     posts.push({ ...data, id });
   });
 
   return posts;
+}
+
+export async function getPostById(id: any) {
+  const docRef = doc(db, "posts", id)
+  const docSnap = await getDoc(docRef)
+
+  if (docSnap.exists()) {
+    console.log(docSnap.data());
+  } else {
+    console.log("No document found");
+  }
 }
 
 export async function createPost(poster: string, title: string, content: string) {
