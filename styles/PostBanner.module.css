@@ -7,9 +7,7 @@
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
   margin: 0.2em auto;
   max-width: 75rem;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+
 }
 
 .left {
@@ -38,6 +36,10 @@
 
 .body h6 {
   font-size: 1rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 65ch;
 }
 
 .body p {
