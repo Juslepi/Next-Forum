@@ -8,12 +8,14 @@ const navbar = () => {
     <nav className={styles.navbar}>
       <div className={styles.upper}>
         <div className={styles.left}>
-          <h2>Forum</h2>
+          <Link href="/">
+            <h2>Forum</h2>
+          </Link>
           <Link href="#">Tags</Link>
           <Link href="#">Users</Link>
         </div>
         <div className={styles.right}>
-          <input type="text" placeholder="Search..."/>
+          <input type="text" placeholder="Search..." />
           <button>Register</button>
           <button>Login</button>
         </div>
