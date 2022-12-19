@@ -28,6 +28,7 @@ const NewPostForm = ({ formOpen, setFormOpen }: NewPostFormProps) => {
     <div className={`${styles.container} ${!formOpen ? "hidden" : ""}`}>
       <form className={styles.postForm}>
         <input
+          autoFocus
           value={title}
           onChange={(e) => setTitle(e.target.value)}
           placeholder="Post Title"
@@ -39,7 +40,13 @@ const NewPostForm = ({ formOpen, setFormOpen }: NewPostFormProps) => {
         />
         <div className={styles.buttonRow}>
           <button onClick={submit}>Send post</button>
-          {setFormOpen ? <button id={styles.closeButton} onClick={closeForm}>Close</button> : ""}
+          {setFormOpen ? (
+            <button id={styles.closeButton} onClick={closeForm}>
+              Close
+            </button>
+          ) : (
+            ""
+          )}
         </div>
       </form>
     </div>
