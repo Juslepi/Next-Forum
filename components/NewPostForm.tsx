@@ -39,7 +39,7 @@ const NewPostForm = ({ formOpen, setFormOpen }: NewPostFormProps) => {
         />
         <div className={styles.buttonRow}>
           <button onClick={submit}>Send post</button>
-          <button id={styles.closeButton} onClick={closeForm}>Close</button>
+          {setFormOpen ? <button id={styles.closeButton} onClick={closeForm}>Close</button> : ""}
         </div>
       </form>
     </div>
