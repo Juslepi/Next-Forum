@@ -10,18 +10,13 @@ const PostBanner = ({ post }: PostBannerProps) => {
   const { poster, title, timestamp } = post;
   return (
     <div className={styles.container}>
-      <div className={styles.left}>
-        <div className={styles.header}>
-          <div className={styles.avatar}>{poster[0]}</div>
-        </div>
-        <div className={styles.body}>
-          <h6>{title}</h6>
-          <div className={styles.footer}></div>
-          <p>{poster}</p>
-          <p className={styles.timestamp}>
-            {getTimeDifferenceString(timestamp)}
-          </p>
-        </div>
+      <div className={styles.header}>
+        <div className={styles.avatar}>{poster[0]}</div>
+      </div>
+      <div className={styles.body}>
+        <h6>{title}</h6>
+        <p>{poster}</p>
+        <p className={styles.timestamp}>{getTimeDifferenceString(timestamp)}</p>
       </div>
     </div>
   );

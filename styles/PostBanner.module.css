@@ -1,19 +1,16 @@
 .container {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
   padding: 1rem;
   background-color: #fff;
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
   margin: 0.2em auto;
-  max-width: 55rem;
+  max-width: 45rem;
 }
 
 @media (max-width: 365px) {
   .container {
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
   }
 }
 
@@ -22,6 +19,7 @@
 }
 
 .avatar {
+  margin-left: 1em;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -41,23 +39,20 @@
 }
 
 .body {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  margin: 0.2em 1em;
+  margin-left: 1rem;
+  overflow: hidden;
 }
 
 .body h6 {
   font-size: 1rem;
-  white-space: nowrap;
+  max-height: 85px;
   overflow: hidden;
+  white-space: nowrap;
   text-overflow: ellipsis;
-  max-width: 50ch;
 }
 
 @media (max-width: 365px) {
   .body h6 {
-    max-width: 140px;
   }
 }
 
