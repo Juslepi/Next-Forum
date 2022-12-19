@@ -51,11 +51,6 @@
   text-overflow: ellipsis;
 }
 
-@media (max-width: 365px) {
-  .body h6 {
-  }
-}
-
 .body p {
   font-size: 0.9rem;
   font-weight: 400;
