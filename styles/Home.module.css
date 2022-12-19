@@ -5,6 +5,12 @@
   align-items: center;
 }
 
+@media (max-width: 360px) {
+  .toolbar {
+    flex-direction: column;
+  }
+}
+
 .toolbar button {
   font-size: 1rem;
   padding: 0.35rem 1rem;
