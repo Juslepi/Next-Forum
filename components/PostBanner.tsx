@@ -16,11 +16,12 @@ const PostBanner = ({ post }: PostBannerProps) => {
         </div>
         <div className={styles.body}>
           <h6>{title}</h6>
+          <div className={styles.footer}></div>
           <p>{poster}</p>
+          <p className={styles.timestamp}>
+            {getTimeDifferenceString(timestamp)}
+          </p>
         </div>
-      </div>
-      <div className={styles.right}>
-        <p className={styles.timestamp}>{getTimeDifferenceString(timestamp)}</p>
       </div>
     </div>
   );

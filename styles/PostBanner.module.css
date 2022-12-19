@@ -6,8 +6,15 @@
   background-color: #fff;
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
   margin: 0.2em auto;
-  max-width: 75rem;
+  max-width: 55rem;
+}
 
+@media (max-width: 365px) {
+  .container {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 }
 
 .left {
@@ -27,6 +34,12 @@
   color: #fff;
 }
 
+@media (max-width: 365px) {
+  .avatar {
+    display: none;
+  }
+}
+
 .body {
   display: flex;
   flex-direction: column;
@@ -39,15 +52,16 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  max-width: 65ch;
+  max-width: 50ch;
+}
+
+@media (max-width: 365px) {
+  .body h6 {
+    max-width: 140px;
+  }
 }
 
 .body p {
-  margin-top: 1rem;
   font-size: 0.9rem;
   font-weight: 400;
-}
-
-.timestamp {
-  margin: auto;
 }
