@@ -21,8 +21,6 @@ export default Page;
 
 export async function getStaticPaths(): Promise<any> {
   const posts = await getPosts();
-  console.log(posts);
-
   const paths = posts.map((post) => ({
     params: { id: post.id },
   }));
@@ -31,11 +29,9 @@ export async function getStaticPaths(): Promise<any> {
 
 export async function getStaticProps({ params }: any): Promise<any> {
   const posts = await getPosts();
-  console.log(posts);
-
   const { id } = params;
   const post = posts.find((p) => p.id === id);
-
+  
   return {
     props: {
       post: post,

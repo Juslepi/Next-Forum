@@ -42,17 +42,6 @@ export async function getPosts() {
   return posts;
 }
 
-export async function getPostById(id: any) {
-  const docRef = doc(db, "posts", id)
-  const docSnap = await getDoc(docRef)
-
-  if (docSnap.exists()) {
-    console.log(docSnap.data());
-  } else {
-    console.log("No document found");
-  }
-}
-
 export async function createPost(poster: string, title: string, content: string) {
   const newPost = {
     poster,
