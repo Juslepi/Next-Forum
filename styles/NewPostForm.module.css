@@ -32,8 +32,11 @@
   background-color: var(--main-bg-color);
 }
 
+.buttonRow > button + *{
+  margin-left: 0.5rem;
+}
+
 #closeButton {
-  margin-left: 1rem;
   background-color: rgb(206, 62, 62);
 }
 
