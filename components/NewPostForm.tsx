@@ -5,7 +5,7 @@ import styles from "../styles/NewPostForm.module.css";
 
 type NewPostFormProps = {
   formOpen: boolean;
-  setFormOpen: Dispatch<SetStateAction<boolean>>;
+  setFormOpen?: Dispatch<SetStateAction<boolean>>;
 };
 
 const NewPostForm = ({ formOpen, setFormOpen }: NewPostFormProps) => {
@@ -21,7 +21,7 @@ const NewPostForm = ({ formOpen, setFormOpen }: NewPostFormProps) => {
 
   const closeForm = (e: FormEvent) => {
     e.preventDefault();
-    setFormOpen(false);
+    if (setFormOpen) setFormOpen(false);
   };
 
   return (
