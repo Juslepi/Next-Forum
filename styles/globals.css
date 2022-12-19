@@ -1,5 +1,6 @@
 :root {
   --main-bg-color: rgb(99, 156, 99);
+  --light-gray-bg-color: rgba(204, 204, 204, 0.2);
 }
 
 html,
