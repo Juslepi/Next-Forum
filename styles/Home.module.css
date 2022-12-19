@@ -1,4 +1,23 @@
+.banner_container {
+  /* Set first term equal to RESULTS_PER_PAGE constant */
+  min-height: calc(5 * 98px);
+}
+
+.link_row {
+  text-align: center;
+}
+
+.link_row button {
+  font-size: 1.2rem;
+  margin-inline: 0.25rem;
+}
+
+.link_row .active {
+  color: rgb(48 150 48);
+}
+
 .toolbar {
+  margin-top: 2rem;
   width: 100%;
   display: flex;
   justify-content: center;
