@@ -8,7 +8,7 @@ import styles from "../../styles/Home.module.css";
 
 export default function Home({ posts }: any) {
   const [formOpen, setFormOpen] = useState(false);
-
+  
   return (
     <div className={styles.container}>
       <ul>
