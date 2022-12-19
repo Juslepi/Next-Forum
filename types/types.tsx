@@ -3,5 +3,5 @@ export interface Post {
   title: string,
   content?: string,
   poster: string,
-  timestamp: Date | string,
+  timestamp: Date,
 }

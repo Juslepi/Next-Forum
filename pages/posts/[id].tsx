@@ -1,10 +1,15 @@
 import { getPosts } from "../../util/firebase";
 import { getTimeDifferenceString } from "../../util/date";
 import NewPostForm from "../../components/NewPostForm";
+import { Post } from "../../types/types";
 
 import styles from "./Post.module.css";
 
-const Page = ({ post }: any) => {
+type Props = {
+  post: Post;
+};
+
+const Page = ({ post }: Props) => {
   const { title, poster, timestamp, content } = post;
   return (
     <div className={styles.container}>
@@ -31,7 +36,7 @@ export async function getStaticProps({ params }: any): Promise<any> {
   const posts = await getPosts();
   const { id } = params;
   const post = posts.find((p) => p.id === id);
-  
+
   return {
     props: {
       post: post,
