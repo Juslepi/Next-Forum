@@ -45,6 +45,7 @@ export async function getPosts() {
 export async function createPost(poster: string, title: string, content: string) {
   const newPost = {
     poster,
+    content,
     title,
     timestamp: serverTimestamp(),
   };
