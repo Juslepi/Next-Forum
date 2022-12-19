@@ -3,13 +3,18 @@ import Link from "next/link";
 import PostBanner from "../../components/PostBanner";
 import { getPosts } from "../../util/firebase";
 import NewPostForm from "../../components/NewPostForm";
+import { Post } from "../../types/types";
 import styles from "../../styles/Home.module.css";
 
 const RESULTS_PER_PAGE = 5;
 
-export default function Home({ posts }: any) {
+type Props = {
+  posts: Post[]
+}
+
+export default function Home({ posts }: Props) {
   const [formOpen, setFormOpen] = useState(false);
-  const [pages, setPages] = useState(Array());
+  const [pages, setPages] = useState<Array<Array<Post>>>([]);
   const [currentPage, setCurrentPage] = useState(0);
 
   useEffect(() => {
@@ -37,7 +42,7 @@ export default function Home({ posts }: any) {
     <div className={styles.container}>
       <ul className={styles.banner_container}>
         {pages.length
-          ? pages[currentPage].map((post: any) => (
+          ? pages[currentPage].map((post: Post) => (
               <Link href={`/posts/${post.id}`} key={post.id}>
                 <li>
                   <PostBanner post={post} />
