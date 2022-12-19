@@ -1,3 +1,5 @@
+import { getTimeDifferenceString } from "../util/date";
+
 import styles from "../styles/PostBanner.module.css";
 
 type PostBannerProps = {
@@ -6,7 +8,6 @@ type PostBannerProps = {
 
 const PostBanner = ({ post }: PostBannerProps) => {
   const { poster, title, timestamp } = post;
-  
   return (
     <div className={styles.container}>
       <div className={styles.left}>
@@ -19,7 +20,7 @@ const PostBanner = ({ post }: PostBannerProps) => {
         </div>
       </div>
       <div className={styles.right}>
-        <p className={styles.timestamp}>{timestamp} Posted ago</p>
+        <p className={styles.timestamp}>{getTimeDifferenceString(timestamp)}</p>
       </div>
     </div>
   );

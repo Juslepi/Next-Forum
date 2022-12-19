@@ -1,4 +1,5 @@
 import { getPosts } from "../../util/firebase";
+import { getTimeDifferenceString } from "../../util/date";
 import NewPostForm from "../../components/NewPostForm";
 
 import styles from "./Post.module.css";
@@ -9,7 +10,7 @@ const Page = ({ post }: any) => {
     <div className={styles.container}>
       <h3>{title}</h3>
       <p>{poster}</p>
-      <p>{timestamp}</p>
+      <p>{getTimeDifferenceString(timestamp)}</p>
       <p>{content || ""}</p>
       <NewPostForm formOpen={true} />
     </div>
