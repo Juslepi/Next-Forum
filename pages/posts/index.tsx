@@ -28,7 +28,9 @@ export default function Home({ posts }: any) {
           New Post
         </button>
       </div>
-      <NewPostForm formOpen={formOpen} setFormOpen={setFormOpen} />
+      <div className={styles.form}>
+        <NewPostForm formOpen={formOpen} setFormOpen={setFormOpen} />
+      </div>
     </div>
   );
 }
