@@ -12,11 +12,11 @@ const NewPostForm = ({ formOpen, setFormOpen }: NewPostFormProps) => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
 
-  const submit = (e: FormEvent) => {
+  const submit = async(e: FormEvent) => {
     e.preventDefault();
 
     if (title === "" || content === "") return;
-    createPost("anonymous", title, content);
+    await createPost("anonymous", title, content);
 
     setTitle("")
     setContent("")
