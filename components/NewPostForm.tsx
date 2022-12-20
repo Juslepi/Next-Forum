@@ -17,6 +17,10 @@ const NewPostForm = ({ formOpen, setFormOpen }: NewPostFormProps) => {
 
     if (title === "" || content === "") return;
     createPost("anonymous", title, content);
+
+    setTitle("")
+    setContent("")
+    location.reload()
   };
 
   const closeForm = (e: FormEvent) => {
