@@ -5,11 +5,9 @@ import {
   getDocs,
   collection,
   serverTimestamp,
-  doc,
-  setDoc,
   addDoc,
-  getDoc
-  
+  orderBy,
+  query  
 } from "firebase/firestore";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -31,7 +29,10 @@ const postCollectionRef = collection(db, "posts");
 
 export async function getPosts() {
   const posts = Array();
-  const querySnapshot = await getDocs(postCollectionRef);
+
+  const docs = query(postCollectionRef, orderBy("timestamp", "desc"))
+  const querySnapshot = await getDocs(docs);
+
   querySnapshot.forEach((post) => {
     const data = post.data();
     const id = post.id;
@@ -48,6 +49,7 @@ export async function createPost(poster: string, title: string, content: string)
     content,
     title,
     timestamp: serverTimestamp(),
+    comments: Array()
   };
   await addDoc(postCollectionRef, newPost)
 }
