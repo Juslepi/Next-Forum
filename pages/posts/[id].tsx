@@ -10,14 +10,15 @@ type Props = {
 };
 
 const Page = ({ post }: Props) => {
-  const { title, poster, timestamp, content } = post;
+  const { title, poster, timestamp, content, id } = post;
+
   return (
     <div className={styles.container}>
       <h3>{title}</h3>
       <p>{poster}</p>
       <p>{getTimeDifferenceString(timestamp)}</p>
       <p>{content || ""}</p>
-      <NewPostForm formOpen={true} />
+      <NewPostForm formOpen={true} commenting={true} postToCommentId={id} />
     </div>
   );
 };

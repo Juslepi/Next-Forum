@@ -7,7 +7,10 @@ import {
   serverTimestamp,
   addDoc,
   orderBy,
-  query  
+  query,
+  updateDoc,
+  doc,
+  arrayUnion,
 } from "firebase/firestore";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -52,4 +55,16 @@ export async function createPost(poster: string, title: string, content: string)
     comments: Array()
   };
   await addDoc(postCollectionRef, newPost)
+}
+
+export async function createComment(poster: string, title: string, content: string, originalPostId: string) {
+  // Get document by ID
+  const docRef = doc(db, "posts", originalPostId)
+  // Add new comment to Documents comments prop
+  const comment = {
+    poster, title, content
+  }
+  await updateDoc(docRef, {
+    comments: arrayUnion(comment)
+  })
 }

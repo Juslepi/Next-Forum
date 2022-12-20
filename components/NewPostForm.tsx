@@ -1,26 +1,42 @@
 import { Dispatch, FormEvent, SetStateAction, useState } from "react";
-import { createPost } from "../util/firebase";
+import { createPost, createComment } from "../util/firebase";
 
 import styles from "../styles/NewPostForm.module.css";
 
 type NewPostFormProps = {
   formOpen: boolean;
   setFormOpen?: Dispatch<SetStateAction<boolean>>;
+  commenting?: boolean;
+  postToCommentId: string;
 };
 
-const NewPostForm = ({ formOpen, setFormOpen }: NewPostFormProps) => {
+const NewPostForm = ({
+  formOpen,
+  setFormOpen,
+  commenting = false,
+  postToCommentId,
+}: NewPostFormProps) => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
 
-  const submit = async(e: FormEvent) => {
+  const submitPost = async (e: FormEvent) => {
     e.preventDefault();
-
     if (title === "" || content === "") return;
-    await createPost("anonymous", title, content);
 
-    setTitle("")
-    setContent("")
-    location.reload()
+    await createPost("anonymous", title, content);
+    setTitle("");
+    setContent("");
+    location.reload();
+  };
+
+  const submitComment = async (e: FormEvent) => {
+    e.preventDefault();
+    if (title === "" || content === "") return;
+
+    await createComment("anonymous", title, content, postToCommentId);
+    setTitle("");
+    setContent("");
+    location.reload();
   };
 
   const closeForm = (e: FormEvent) => {
@@ -43,7 +59,9 @@ const NewPostForm = ({ formOpen, setFormOpen }: NewPostFormProps) => {
           placeholder="Your post here"
         />
         <div className={styles.buttonRow}>
-          <button onClick={submit}>Send post</button>
+          <button onClick={commenting ? submitComment : submitPost}>
+            Send post
+          </button>
           {setFormOpen ? (
             <button id={styles.closeButton} onClick={closeForm}>
               Close
