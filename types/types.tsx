@@ -4,4 +4,5 @@ export interface Post {
   content?: string,
   poster: string,
   timestamp: Date,
+  comments?: Array<Post>
 }
