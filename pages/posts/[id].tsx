@@ -2,6 +2,7 @@ import { getPosts } from "../../util/firebase";
 import { getTimeDifferenceString } from "../../util/date";
 import NewPostForm from "../../components/NewPostForm";
 import { Post } from "../../types/types";
+import Comment from "../../components/Comment";
 
 import styles from "./Post.module.css";
 
@@ -19,13 +20,12 @@ const Page = ({ post }: Props) => {
       <p>{getTimeDifferenceString(timestamp)}</p>
       <p>{content || ""}</p>
       <NewPostForm formOpen={true} commenting={true} postToCommentId={id} />
+
+      {/* Comment Section */}
       <div className={styles.comment_container}>
         <h3>Comments</h3>
         {comments?.map((comment, i) => (
-          <div key={i} className={styles.comment}>
-            <h5>{comment.title}</h5>
-            <p>{comment.content}</p>
-          </div>
+          <Comment key={i} comment={comment} />
         ))}
       </div>
     </div>
