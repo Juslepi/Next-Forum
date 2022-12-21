@@ -7,7 +7,7 @@ type NewPostFormProps = {
   formOpen: boolean;
   setFormOpen?: Dispatch<SetStateAction<boolean>>;
   commenting?: boolean;
-  postToCommentId: string;
+  postToCommentId?: string;
 };
 
 const NewPostForm = ({
@@ -32,6 +32,7 @@ const NewPostForm = ({
   const submitComment = async (e: FormEvent) => {
     e.preventDefault();
     if (title === "" || content === "") return;
+    if (!postToCommentId) return
 
     await createComment("anonymous", title, content, postToCommentId);
     setTitle("");
