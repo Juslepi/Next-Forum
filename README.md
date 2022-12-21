@@ -4,7 +4,7 @@ Small forum-like next.js application build to better my understanding of next.js
 
 ## Demo
 
-Coming soon!
+https://next-forum-q7y4.vercel.app/posts
 
 ## Getting Started
 
