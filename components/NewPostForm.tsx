@@ -52,8 +52,10 @@ const NewPostForm = ({
           value={title}
           onChange={(e) => setTitle(e.target.value)}
           placeholder="Post Title"
+          required
         />
         <textarea
+          draggable="false"
           value={content}
           onChange={(e) => setContent(e.target.value)}
           placeholder="Your post here"

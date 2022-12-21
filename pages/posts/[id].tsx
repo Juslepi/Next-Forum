@@ -10,7 +10,7 @@ type Props = {
 };
 
 const Page = ({ post }: Props) => {
-  const { title, poster, timestamp, content, id } = post;
+  const { title, poster, timestamp, content, id, comments } = post;
 
   return (
     <div className={styles.container}>
@@ -19,6 +19,15 @@ const Page = ({ post }: Props) => {
       <p>{getTimeDifferenceString(timestamp)}</p>
       <p>{content || ""}</p>
       <NewPostForm formOpen={true} commenting={true} postToCommentId={id} />
+      <div className={styles.comment_container}>
+        <h3>Comments</h3>
+        {comments?.map((comment, i) => (
+          <div key={i} className={styles.comment}>
+            <h5>{comment.title}</h5>
+            <p>{comment.content}</p>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
