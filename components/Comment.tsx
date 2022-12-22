@@ -11,6 +11,7 @@ const Comment = ({ comment }: CommentProps) => {
     <div className={styles.comment}>
       <h5>{comment.title}</h5>
       <p>{comment.content}</p>
+      <p className={styles.footer}>Posted by {comment.poster} </p>
     </div>
   );
 };

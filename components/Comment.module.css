@@ -1,3 +1,12 @@
 .comment {
   margin-bottom: 2rem;
 }
+
+.comment h5 {
+  margin-bottom: 0.35rem;
+}
+
+.footer {
+  font-size: 0.85rem;
+  margin-top: 1rem;
+}
