@@ -6,19 +6,20 @@ import styles from "../styles/NewPostForm.module.css";
 type NewPostFormProps = {
   formOpen: boolean;
   setFormOpen?: Dispatch<SetStateAction<boolean>>;
-  commenting?: boolean;
+  commenting?: boolean;  
   postToCommentId?: string;
 };
 
 const NewPostForm = ({
   formOpen,
   setFormOpen,
-  commenting = false,
+  commenting, // Indicates if the form responds to existing post with a comment
   postToCommentId,
 }: NewPostFormProps) => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
 
+  // Used for submit event handling if commenting prop passed in as false
   const submitPost = async (e: FormEvent) => {
     e.preventDefault();
     if (title === "" || content === "") return;
@@ -29,6 +30,7 @@ const NewPostForm = ({
     location.reload();
   };
 
+  // Used for submit event handling if commenting prop passed in as true
   const submitComment = async (e: FormEvent) => {
     e.preventDefault();
     if (title === "" || content === "") return;
@@ -40,6 +42,7 @@ const NewPostForm = ({
     location.reload();
   };
 
+  // Closes form if setFormOpen is passed as prop
   const closeForm = (e: FormEvent) => {
     e.preventDefault();
     if (setFormOpen) setFormOpen(false);
@@ -65,6 +68,8 @@ const NewPostForm = ({
           <button onClick={commenting ? submitComment : submitPost}>
             Send post
           </button>
+
+          {/* Close button for form if the form is toggleable */}
           {setFormOpen ? (
             <button id={styles.closeButton} onClick={closeForm}>
               Close
