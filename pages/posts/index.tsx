@@ -14,8 +14,8 @@ type Props = {
 
 export default function Home({ posts }: Props) {
   const [formOpen, setFormOpen] = useState(false);
-  const [pages, setPages] = useState<Array<Array<Post>>>([]);
-  const [currentPage, setCurrentPage] = useState(0);
+  const [pages, setPages] = useState<Array<Array<Post>>>([]); // Fetch results split into pages
+  const [currentPage, setCurrentPage] = useState(0); // Indicates current page that client is on
 
   useEffect(() => {
     // Split posts to multiple pages
