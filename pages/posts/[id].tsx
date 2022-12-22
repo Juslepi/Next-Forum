@@ -17,7 +17,7 @@ const Page = ({ post }: Props) => {
     <div className={styles.container}>
       <h3>{title}</h3>
       <p className={styles.content}>{content || ""}</p>
-      <p className={styles.footer}>Posted by {poster} {getTimeDifferenceString(timestamp)}</p>
+      <p className={styles.footer}>{getTimeDifferenceString(timestamp)} by {poster}</p>
       <NewPostForm formOpen={true} commenting={true} postToCommentId={id} />
 
       {/* Comment Section */}
