@@ -17,6 +17,15 @@
   margin-bottom: 1.25rem;
 }
 
+.content {
+  margin-bottom: 3rem;
+  line-height: 1.4;
+}
+
+.footer {
+  font-size: 0.85rem;
+}
+
 .comment_container {
   margin-top: 4rem;
 }
