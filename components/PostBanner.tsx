@@ -1,7 +1,7 @@
 import { getTimeDifferenceString } from "../util/date";
 import { Post } from "../types/types";
 
-import styles from "../styles/PostBanner.module.css";
+import styles from "./PostBanner.module.css";
 
 type PostBannerProps = {
   post: Post,
