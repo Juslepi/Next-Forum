@@ -5,15 +5,15 @@ import { useUserContext } from "../context/userContext";
 import styles from "../styles/Navbar.module.css";
 
 const Navbar = () => {
-  const { user, setUser } = useUserContext();
+  const { user, changeUser } = useUserContext();
   const [userForm, setUserForm] = useState("");
-  
+
   return (
     <nav className={styles.navbar}>
       <div className={styles.upper}>
-          <Link href="/">
-            <h2>Forum</h2>
-          </Link>
+        <Link href="/">
+          <h2>Forum</h2>
+        </Link>
         <div className={styles.right}>
           <input
             type="text"
@@ -23,8 +23,7 @@ const Navbar = () => {
           />
           <button
             onClick={() => {
-              setUser(userForm);
-              sessionStorage.setItem("username", userForm)
+              changeUser(userForm);
               setUserForm("");
             }}
           >

@@ -12,8 +12,13 @@ export function UserProvider({ children }) {
     }
   }, [user]);
 
+  const changeUser = (username) => {
+    setUser(username);
+    sessionStorage.setItem("username", username);
+  };
+
   return (
-    <UserContext.Provider value={{ user, setUser }}>
+    <UserContext.Provider value={{ user, changeUser }}>
       {children}
     </UserContext.Provider>
   );
