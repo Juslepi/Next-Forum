@@ -1,4 +1,10 @@
-import { Dispatch, FormEvent, SetStateAction, useState, useContext } from "react";
+import {
+  Dispatch,
+  FormEvent,
+  SetStateAction,
+  useState,
+  useContext,
+} from "react";
 import { createPost, createComment } from "../util/firebase";
 import { useUserContext } from "../context/userContext";
 
@@ -7,44 +13,38 @@ import styles from "../styles/NewPostForm.module.css";
 type NewPostFormProps = {
   formOpen: boolean;
   setFormOpen?: Dispatch<SetStateAction<boolean>>;
-  commenting?: boolean;  
+  commenting?: boolean;
   postToCommentId?: string;
 };
 
 const NewPostForm = ({
   formOpen,
   setFormOpen,
-  commenting, // Indicates if the form responds to existing post with a comment
+  commenting, // Form comments on existing post if true, else creates new post
   postToCommentId,
 }: NewPostFormProps) => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const { user } = useUserContext();
 
-  // Used for submit event handling if commenting prop passed in as false
-  const submitPost = async (e: FormEvent) => {
+  const submit = async (e: FormEvent) => {
     e.preventDefault();
     if (title === "" || content === "") return;
 
-    await createPost(user || "anonymous", title, content);
+    // Add comment to existing post
+    if (commenting && postToCommentId) {
+      await createComment(user || "anonymous", title, content, postToCommentId);
+    }
+    // Create new post
+    else {
+      await createPost(user || "anonymous", title, content);
+    }
+
     setTitle("");
     setContent("");
     location.reload();
   };
 
-  // Used for submit event handling if commenting prop passed in as true
-  const submitComment = async (e: FormEvent) => {
-    e.preventDefault();
-    if (title === "" || content === "") return;
-    if (!postToCommentId) return
-
-    await createComment(user || "anonymous", title, content, postToCommentId);
-    setTitle("");
-    setContent("");
-    location.reload();
-  };
-
-  // Closes form if setFormOpen is passed as prop
   const closeForm = (e: FormEvent) => {
     e.preventDefault();
     if (setFormOpen) setFormOpen(false);
@@ -67,7 +67,7 @@ const NewPostForm = ({
           placeholder="Your post here"
         />
         <div className={styles.buttonRow}>
-          <button onClick={commenting ? submitComment : submitPost}>
+          <button onClick={submit}>
             Send post
           </button>
 
