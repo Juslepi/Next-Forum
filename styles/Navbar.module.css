@@ -35,8 +35,19 @@
   border-bottom: 1px solid white;
 }
 
+@media (max-width: 510px) {
+  .upper {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .right {
+    display: flex;
+  }
+}
+
 .lower {
-  padding: 0.75rem 1rem;
+  padding: 0.75rem 0;
   border-bottom: 1px solid #ccc;
 }
 
