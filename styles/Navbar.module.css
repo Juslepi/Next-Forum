@@ -36,15 +36,10 @@
 }
 
 .lower {
-  padding: 0.75rem 0;
+  padding: 0.75rem 1rem;
   border-bottom: 1px solid #ccc;
 }
 
-.lower a {
-  margin: 0 2rem;
-}
-
 .lower p {
-  display: inline;
-  margin-inline: auto;
+  margin-inline: 2rem;
 }
