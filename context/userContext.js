@@ -6,7 +6,6 @@ export function UserProvider({ children }) {
   const [user, setUser] = useState("");
 
   useEffect(() => {
-    console.log("triger");
     if (!user) {
       const username = sessionStorage.getItem("username");
       setUser(username);
