@@ -11,13 +11,10 @@ const Navbar = () => {
   return (
     <nav className={styles.navbar}>
       <div className={styles.upper}>
-        <div className={styles.left}>
           <Link href="/">
             <h2>Forum</h2>
           </Link>
-        </div>
         <div className={styles.right}>
-          
           <input
             type="text"
             value={userForm}
