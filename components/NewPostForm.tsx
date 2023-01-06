@@ -1,5 +1,6 @@
-import { Dispatch, FormEvent, SetStateAction, useState } from "react";
+import { Dispatch, FormEvent, SetStateAction, useState, useContext } from "react";
 import { createPost, createComment } from "../util/firebase";
+import { useUserContext } from "../context/userContext";
 
 import styles from "../styles/NewPostForm.module.css";
 
@@ -18,13 +19,14 @@ const NewPostForm = ({
 }: NewPostFormProps) => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
+  const { user } = useUserContext();
 
   // Used for submit event handling if commenting prop passed in as false
   const submitPost = async (e: FormEvent) => {
     e.preventDefault();
     if (title === "" || content === "") return;
 
-    await createPost("anonymous", title, content);
+    await createPost(user || "anonymous", title, content);
     setTitle("");
     setContent("");
     location.reload();
@@ -36,7 +38,7 @@ const NewPostForm = ({
     if (title === "" || content === "") return;
     if (!postToCommentId) return
 
-    await createComment("anonymous", title, content, postToCommentId);
+    await createComment(user || "anonymous", title, content, postToCommentId);
     setTitle("");
     setContent("");
     location.reload();

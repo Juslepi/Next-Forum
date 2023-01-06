@@ -1,9 +1,13 @@
-import React from "react";
+import { useState } from "react";
 import Link from "next/link";
+import { useUserContext } from "../context/userContext";
 
 import styles from "../styles/Navbar.module.css";
 
-const navbar = () => {
+const Navbar = () => {
+  const { user, setUser } = useUserContext();
+  const [userForm, setUserForm] = useState("");
+  
   return (
     <nav className={styles.navbar}>
       <div className={styles.upper}>
@@ -15,9 +19,22 @@ const navbar = () => {
           <Link href="#">Users</Link>
         </div>
         <div className={styles.right}>
-          <input type="text" placeholder="Search..." />
-          <button>Register</button>
-          <button>Login</button>
+          <p>You are {user ? user : "anonymous"}</p>
+          <input
+            type="text"
+            value={userForm}
+            onChange={(e) => setUserForm(e.target.value)}
+            placeholder="username"
+          />
+          <button
+            onClick={() => {
+              setUser(userForm);
+              sessionStorage.setItem("username", userForm)
+              setUserForm("");
+            }}
+          >
+            Change username
+          </button>
         </div>
       </div>
       <div className={styles.lower}>
@@ -29,4 +46,4 @@ const navbar = () => {
   );
 };
 
-export default navbar;
+export default Navbar;
