@@ -29,13 +29,13 @@ export default function Home({ posts }: Props) {
 
   // Returns values for navigation links
   const navigationLinks = () => {
-    const rtrn = [];
-    const x = posts.length / RESULTS_PER_PAGE;
+    const pageNumbers = [];
+    const numberOfPages = posts.length / RESULTS_PER_PAGE;
 
-    for (let i = 0; i < x; i++) {
-      rtrn.push(i);
+    for (let i = 0; i < numberOfPages; i++) {
+      pageNumbers.push(i);
     }
-    return rtrn;
+    return pageNumbers;
   };
 
   return (
