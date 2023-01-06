@@ -38,9 +38,6 @@ const Navbar = () => {
         </div>
       </div>
       <div className={styles.lower}>
-        <Link href="#">Latest</Link>
-        <Link href="#">Unanswered</Link>
-        <Link href="#">Trending</Link>
         <p>You are {user ? user : "anonymous"}</p>
       </div>
     </nav>
