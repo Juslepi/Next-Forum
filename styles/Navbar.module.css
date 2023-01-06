@@ -43,3 +43,8 @@
 .lower a {
   margin: 0 2rem;
 }
+
+.lower p {
+  display: inline;
+  margin-inline: auto;
+}

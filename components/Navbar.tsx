@@ -19,7 +19,7 @@ const Navbar = () => {
           <Link href="#">Users</Link>
         </div>
         <div className={styles.right}>
-          <p>You are {user ? user : "anonymous"}</p>
+          
           <input
             type="text"
             value={userForm}
@@ -41,6 +41,7 @@ const Navbar = () => {
         <Link href="#">Latest</Link>
         <Link href="#">Unanswered</Link>
         <Link href="#">Trending</Link>
+        <p>You are {user ? user : "anonymous"}</p>
       </div>
     </nav>
   );
