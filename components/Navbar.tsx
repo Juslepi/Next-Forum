@@ -6,7 +6,7 @@ import styles from "../styles/Navbar.module.css";
 
 const Navbar = () => {
   const { user, changeUser } = useUserContext();
-  const [userForm, setUserForm] = useState("");
+  const [username, setUsername] = useState("");
 
   return (
     <nav className={styles.navbar}>
@@ -17,14 +17,14 @@ const Navbar = () => {
         <div className={styles.right}>
           <input
             type="text"
-            value={userForm}
-            onChange={(e) => setUserForm(e.target.value)}
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
             placeholder="username"
           />
           <button
             onClick={() => {
-              changeUser(userForm);
-              setUserForm("");
+              changeUser(username);
+              setUsername("");
             }}
           >
             Change username
