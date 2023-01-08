@@ -8,7 +8,10 @@ type PostBannerProps = {
 };
 
 const PostBanner = ({ post }: PostBannerProps) => {
-  const { poster, title, timestamp } = post;
+  const { poster, title, timestamp, comments } = post;
+  const replyCount = comments?.length;
+  
+  console.log(post);
   return (
     <div className={styles.container}>
       <div className={styles.header}>
@@ -18,6 +21,7 @@ const PostBanner = ({ post }: PostBannerProps) => {
         <h6>{title}</h6>
         <p>{poster}</p>
         <p className={styles.timestamp}>{getTimeDifferenceString(timestamp)}</p>
+        <p>{replyCount === 1 ? "1 reply" : `${replyCount} replies`}</p>
       </div>
     </div>
   );
